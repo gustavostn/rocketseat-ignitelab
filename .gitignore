@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Bloco de notas para anotação durante as aulas
+annotations.txt

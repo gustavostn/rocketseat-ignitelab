@@ -1,44 +1,46 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { gql, useQuery } from "@apollo/client"
+import { useEffect } from "react"
+import { client } from "./lib/apollo"
+
+const GET_LESSONS_QUERY = gql`
+  query {
+    lessons {
+      id
+      title
+      teacher {
+        name
+      }
+    }
+  }
+`
+
+interface lesson {
+  id: string
+  title: string
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Utilizando useEffect p/ realizar query
+  // useEffect(() => {
+  //   client.query({ query: GET_LESSONS_QUERY })
+  //   .then(response => console.log(response.data))
+  // }, [])
 
+  const { data } = useQuery(GET_LESSONS_QUERY)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <ul>
+      {
+        data.lessons.map((lesson: lesson, index: number) => {
+          return (
+            <div key={index}>
+              <li>ID: {lesson.id}</li>
+              <li>Título: {lesson.title}</li>
+            </div>
+          )
+        })
+      }
+    </ul>
   )
 }
 
