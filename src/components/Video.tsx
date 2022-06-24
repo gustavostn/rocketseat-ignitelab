@@ -5,7 +5,7 @@ import "@vime/core/themes/default.css";
 import { gql, useQuery } from "@apollo/client";
 
 const GET_LESSON_BY_SLUG = gql`
-    query getLessonBySlug ($slug: String) {
+    query GetLessonBySlug ($slug: String) {
         lesson(where: {slug: $slug}) {
             title
             videoId
@@ -52,7 +52,6 @@ export function Video(props: VideoProps) {
             </div>
         )
     }
-    console.log(data)
 
     return (
         <div className="flex-1">
