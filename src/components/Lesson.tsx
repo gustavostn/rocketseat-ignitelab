@@ -1,5 +1,6 @@
 import { CheckCircle, Lock, } from "phosphor-react"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 interface LessonsProps {
     title: string
@@ -31,17 +32,16 @@ export function Lesson(props: LessonsProps) {
         setAvailableDtFormated(`${availableAtFormated} • ${timeLiberation}`)
     }
 
-
     return (
-        <a href="#">
+        <Link to={`/curso/aula/${props.slug}`} className="group">
             <span className="text-gray-300">
                 {availableDtFormated}
             </span>
-            <div className="rounded border border-gray-500 p-4 mt-2">
+            <div className="rounded border border-gray-500 p-4 mt-2 group-hover:bg-green-500 transition-colors">
                 <header className="flex items-center justify-between">
                     {
                         availableDtIsPast ? (
-                            <span className="flex align-center gap-2 text-sm text-blue-500">
+                            <span className="flex align-center gap-2 text-sm text-blue-500 group-hover:text-white transition-colors">
                                 <CheckCircle size={20} />
                                 Conteúdo liberado
                             </span>
@@ -53,12 +53,12 @@ export function Lesson(props: LessonsProps) {
                         )
                     }
 
-                    <span className="text-xs rounded py-[2px] px-2 text-white border border-green-300 font-bold">
+                    <span className="text-xs rounded py-[2px] px-2 text-white border border-green-300 font-bold group-hover:border-white transition-colors">
                         {props.type === "LIVE" ? "AO VIVO" : "AULA PRÁTICA"}
                     </span>
                 </header>
-                <strong className="text-gray-200 mt-5 block">{props.title}</strong>
+                <strong className="text-gray-200 mt-5 block group-hover:text-white transition-colors">{props.title}</strong>
             </div>
-        </a>
+        </Link>
     )
 }
