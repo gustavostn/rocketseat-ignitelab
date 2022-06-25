@@ -2,7 +2,7 @@ import { useState, FormEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IgniteLabLogo } from "../components/Ignitelab-logo";
 import { useCreateSubscriberMutation } from "../graphql/generated";
-
+import ImgCodeMockup from '../../src/assets/code-mockup.png'
 
 export function Subscribe() {
 
@@ -69,7 +69,7 @@ export function Subscribe() {
                     </form>
                 </div>
             </div>
-            <img src="/src/assets/code-mockup.png" className="mt-10" alt="Imagem exibindo um IDE de programação com alguns códigos escritos" />
+            <img src={ImgCodeMockup} className="mt-10" alt="Imagem exibindo um IDE de programação com alguns códigos escritos" />
         </div>
     )
 }
