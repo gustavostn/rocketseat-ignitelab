@@ -9,3 +9,4 @@ Projeto utilizando ReactJs desenvolvido durante o evento ignite lab realizado pe
 - Apollo graphql: https://www.apollographql.com/docs/react/
 - Tailwind: https://tailwindcss.com/docs/installation
 - VimeJs: https://vimejs.com/getting-started/installation#react
+- svg2jsx: https://svg2jsx.com/
