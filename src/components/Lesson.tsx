@@ -4,9 +4,9 @@ import { Link, useParams } from "react-router-dom"
 
 interface LessonsProps {
     title: string
-    slug: string
+    slug: string | null | undefined
     availableAt: Date
-    type: "LIVE" | "CLASS"
+    type: "LIVE" | "CLASS" | any
 }
 
 export function Lesson(props: LessonsProps) {
