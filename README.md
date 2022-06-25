@@ -1,3 +1,6 @@
+# Projeto publicado na vercel
+<a href="https://rocketseat-ignitelab-32veoxl0n-gutavostn.vercel.app/" target="_blank">Visualizar aplicação</a>
+
 # rocketseat-ignitelab
 Projeto utilizando ReactJs desenvolvido durante o evento ignite lab realizado pela Rocketseat
 
